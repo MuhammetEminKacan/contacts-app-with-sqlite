@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_act_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.emin.kacan.kisilerapp.Fragments.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/kisiDuzenlemeGecis"
+            app:destination="@id/kisiDuzenlemeFragment" />
+        <action
+            android:id="@+id/kisiKayitGecis"
+            app:destination="@id/kisiKayitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kisiDuzenlemeFragment"
+        android:name="com.emin.kacan.kisilerapp.Fragments.KisiDuzenlemeFragment"
+        android:label="fragment_kisi_duzenleme"
+        tools:layout="@layout/fragment_kisi_duzenleme" >
+        <argument
+            android:name="kisi"
+            app:argType="com.emin.kacan.kisilerapp.DatabaseOperations.Kisiler" />
+        <action
+            android:id="@+id/kisiDuzenlemedenDonus"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kisiKayitFragment"
+        android:name="com.emin.kacan.kisilerapp.Fragments.KisiKayitFragment"
+        android:label="fragment_kisi_kayit"
+        tools:layout="@layout/fragment_kisi_kayit" >
+        <action
+            android:id="@+id/kisiKayittanDonus"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+</navigation>
